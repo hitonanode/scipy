@@ -351,6 +351,10 @@ def test_bug_17380():
     linprog([1, 1], A_ub=[[-1, 0]], b_ub=[-2.5], integrality=[1, 1])
 
 
+def test_bug_all_zero_integrality_list():
+    linprog([1, 1], A_ub=[[-1, 0]], b_ub=[-2.5], integrality=[0, 0])
+
+
 A_ub = None
 b_ub = None
 A_eq = None
