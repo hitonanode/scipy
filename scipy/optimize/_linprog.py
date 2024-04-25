@@ -623,7 +623,7 @@ def linprog(c, A_ub=None, b_ub=None, A_eq=None, b_eq=None,
         warning_message = ("Only `method='highs'` supports integer "
                            "constraints. Ignoring `integrality`.")
         warn(warning_message, OptimizeWarning, stacklevel=2)
-    elif np.any(integrality):
+    elif integrality is not None:
         integrality = np.broadcast_to(integrality, np.shape(c))
 
     lp = _LPProblem(c, A_ub, b_ub, A_eq, b_eq, bounds, x0, integrality)
